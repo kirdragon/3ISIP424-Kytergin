@@ -30,16 +30,10 @@ namespace StoreApp
     class Program
     {
         static List<Product> products = new List<Product>();
-        static int nextCode = 10006;
+        static int nextCode = 10000;
 
         static void Main()
         {
-            products.Add(new Product { Code = 10001, Name = "Хлеб", Price = 60, Quantity = 10, Category = Category.Food });
-            products.Add(new Product { Code = 10002, Name = "Мышь", Price = 1200, Quantity = 5, Category = Category.Electronics });
-            products.Add(new Product { Code = 10003, Name = "Футболка", Price = 1500, Quantity = 7, Category = Category.Clothes });
-            products.Add(new Product { Code = 10004, Name = "Молоко", Price = 100, Quantity = 20, Category = Category.Food });
-            products.Add(new Product { Code = 10005, Name = "Наушники", Price = 2500, Quantity = 3, Category = Category.Electronics });
-
             while (true)
             {
                 Console.WriteLine("\n1 - Показать\n2 - Добавить\n3 - Удалить\n4 - Поставка\n5 - Продать\n6 - Поиск\n0 - Выход");
