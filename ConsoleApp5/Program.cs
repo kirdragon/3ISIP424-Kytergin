@@ -24,6 +24,7 @@ class Program
         int comparison = 0;
         int longestWord = 0;
 
+        int shortestWord = 0;
         int countSentences = 0;
 
         foreach (char symbol in text)
@@ -51,6 +52,10 @@ class Program
             }
             else
             {
+                if (shortestWord == 0 || comparison< shortestWord)
+                {
+                    shortestWord = comparison;
+                }
                 inWord = false;
                 comparison = 0;
             }
@@ -60,5 +65,6 @@ class Program
         Console.WriteLine($"Количество слов: {wordCount}");
         Console.WriteLine($"Самое длинное слово содержит {longestWord} символов");
         Console.WriteLine($"Количество предложений: {countSentences}");
+        Console.WriteLine($"Самое короткое слово содержит {shortestWord} символов");
     }
 }
