@@ -10,34 +10,55 @@ class Program
 
         while (text.Length < 100)
         {
-            Console.WriteLine("Текст должен быть >100 символов");
+            Console.WriteLine("Текст должен быть не менее 100 символов");
             Console.WriteLine("Введите текст еще раз: ");
 
             text = Console.ReadLine();
         }
 
         Console.WriteLine("Текст принят.");
-        Console.WriteLine($"Количество символов: {text.Length}");
 
         int wordCount = 0;
         bool inWord = false;
 
+        int comparison = 0;
+        int longestWord = 0;
+
+        int countSentences = 0;
+
         foreach (char symbol in text)
         {
-            if (symbol != ' ')
+
+            if (symbol == '.')
+            {
+                countSentences++;
+            }
+
+            if (symbol != ' ' && symbol != '.')
             {
                 if (inWord == false)
                 {
                     wordCount++;
                     inWord = true;
                 }
+
+                comparison++;
+
+                if (comparison > longestWord)
+                {
+                    longestWord = comparison;
+                }
             }
             else
             {
                 inWord = false;
+                comparison = 0;
             }
         }
 
+        Console.WriteLine($"Количество символов: {text.Length}");
         Console.WriteLine($"Количество слов: {wordCount}");
+        Console.WriteLine($"Самое длинное слово содержит {longestWord} символов");
+        Console.WriteLine($"Количество предложений: {countSentences}");
     }
 }
