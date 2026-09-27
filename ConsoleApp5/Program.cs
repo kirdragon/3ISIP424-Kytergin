@@ -30,7 +30,10 @@ class Program
 
         int shortestWord = 0;
         int countSentences = 0;
-
+        
+        string all_vocabulary = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyz";
+        int[] vocabulary_count = new int[59];
+        string count_of_letters = "Текст содержит:\n";
         foreach (char symbol in text)
         {
 
@@ -90,6 +93,22 @@ class Program
             }
         }
 
+        foreach (char symbol in text)
+        {
+            int index = all_vocabulary.IndexOf(symbol);
+            if (index!= -1)
+            {
+                vocabulary_count[index]++;
+            }
+        }
+
+        for (int i = 0;i< all_vocabulary.Length;i++)
+        {
+            if (vocabulary_count[i] >0)
+            {
+                count_of_letters += $"{vocabulary_count[i]} - {all_vocabulary[i]}\n";
+            }
+        }
         if (wordCount == 1)
         {
         shortestWord = longestWord;
@@ -103,5 +122,6 @@ class Program
         Console.WriteLine($"Самое короткое слово содержит {shortestWord} символов");
         Console.WriteLine($"Количество гласных букв: {count_glas}");
         Console.WriteLine($"Количество согласных букв: {count_sogl}");
+        Console.WriteLine(count_of_letters);
     }
 }
