@@ -13,7 +13,34 @@ class Program
             Console.WriteLine("Введите текст длинной минимум в 100 символов: ");
             string text = Console.ReadLine();
 
+<<<<<<< HEAD
             while (text.Length < 100)
+=======
+            text = Console.ReadLine();
+        }
+
+        Console.WriteLine("Текст принят.");
+        text = text.ToLower().Trim();
+
+        int count_sogl = 0;
+        int count_glas = 0;
+        int wordCount = 0;
+        bool inWord = false;
+
+        int comparison = 0;
+        int longestWord = 0;
+
+        int shortestWord = 0;
+        int countSentences = 0;
+        
+        string all_vocabulary = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyz";
+        int[] vocabulary_count = new int[59];
+        string count_of_letters = "Текст содержит:\n";
+        foreach (char symbol in text)
+        {
+
+            if (symbol == '.')
+>>>>>>> f0dd112082c054508446041846136450eed33491
             {
                 Console.WriteLine("Текст должен быть не менее 100 символов");
                 Console.WriteLine("Введите текст еще раз: ");
@@ -144,5 +171,39 @@ class Program
             else
             { }
         }
+<<<<<<< HEAD
+=======
+
+        foreach (char symbol in text)
+        {
+            int index = all_vocabulary.IndexOf(symbol);
+            if (index!= -1)
+            {
+                vocabulary_count[index]++;
+            }
+        }
+
+        for (int i = 0;i< all_vocabulary.Length;i++)
+        {
+            if (vocabulary_count[i] >0)
+            {
+                count_of_letters += $"{vocabulary_count[i]} - {all_vocabulary[i]}\n";
+            }
+        }
+        if (wordCount == 1)
+        {
+        shortestWord = longestWord;
+            countSentences = 1;
+        }
+
+        Console.WriteLine($"Количество символов: {text.Length}");
+        Console.WriteLine($"Количество слов: {wordCount}");
+        Console.WriteLine($"Самое длинное слово содержит {longestWord} символов");
+        Console.WriteLine($"Количество предложений: {countSentences}");
+        Console.WriteLine($"Самое короткое слово содержит {shortestWord} символов");
+        Console.WriteLine($"Количество гласных букв: {count_glas}");
+        Console.WriteLine($"Количество согласных букв: {count_sogl}");
+        Console.WriteLine(count_of_letters);
+>>>>>>> f0dd112082c054508446041846136450eed33491
     }
 }
